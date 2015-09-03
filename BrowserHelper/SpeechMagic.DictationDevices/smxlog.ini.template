@@ -1,0 +1,29 @@
+;
+; Audio SDK logging ini file
+;
+
+;
+; LogSystem section defines default values for other log channels
+;
+[LogSystem]
+MaxLevel = 3
+LogDirectory = C:\TEMP\SpeechMagic\SMXLOG
+AppendFile = 0
+FlushToDisk = 0
+PrefixFormat = %D %T, %H ..%(24F:%-4L%_|%_
+
+;
+; log channels...
+;
+
+
+[errors]
+LoggingEnabled = 1
+TopicMask = 0x8000000000000000
+LogFile = Errors.log
+PrefixFormat = %D %T%15M:%_
+
+[all]
+LoggingEnabled = 1
+LogFile = All.log
+PrefixFormat = %D %T, %H ..%(24F:%-4L %22M:%_

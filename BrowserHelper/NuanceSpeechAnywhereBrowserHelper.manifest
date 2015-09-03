@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<assemblyIdentity processorArchitecture="x86" version="1.6.119.1529" type="win32" name="NuanceSpeechAnywhereBrowserHelper"/>
+	<!-- 
+    The dependency to the SpeechMagic.DictationDevices side-by-side assembly
+    
+    NOTE: Make sure to update the version tag to point to the correct version
+          of the SpeechMagic.DictationDevices assembly to use.
+    NOTE: This manifest file is not for embedding but will be loaded dynamically!
+  -->
+	<dependency>
+		<dependentAssembly>
+			<assemblyIdentity processorArchitecture="x86" version="17.4.10.4" type="win32" name="SpeechMagic.DictationDevices"/>
+		</dependentAssembly>
+	</dependency>
+	<!-- 
+    The dependency to the Philips.SpeechMike side-by-side assembly
+    
+    NOTE: Make sure to update the version tag to point to the correct version
+          of the Philips.SpeechMike assembly to use.
+    NOTE: This manifest file is not for embedding but will be loaded dynamically!
+  -->
+	<dependency>
+		<dependentAssembly>
+			<assemblyIdentity processorArchitecture="x86" version="3.2.321.01" type="win32" name="Philips.SpeechMike">
+			</assemblyIdentity>
+		</dependentAssembly>
+	</dependency>
+	<!-- 
+    The dependency to the Philips.SpeechMike side-by-side assembly
+    
+    NOTE: Make sure to update the version tag to point to the correct version
+          of the Nuance.PowerMic assembly to use.
+    NOTE: This manifest file is not for embedding but will be loaded dynamically!
+  -->
+	<dependency>
+		<dependentAssembly>
+			<assemblyIdentity processorArchitecture="x86" version="4.1.15.0" type="win32" name="Nuance.PowerMic">
+			</assemblyIdentity>
+		</dependentAssembly>
+	</dependency>
+</asmv1:assembly>

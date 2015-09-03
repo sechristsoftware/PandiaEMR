@@ -1,0 +1,574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="1510" MadCap:lastWidth="990">
+    <head><title>
+Nuance SpeechAnywhere (Browser edition) Readme - How to enable microphone button events</title>
+        <style>
+            <!--
+
+			/*<meta />*/
+
+			/* @group Global */
+
+			*
+			{
+			margin: 0;
+			padding: 0;
+			}
+
+			body
+			{
+			background-color: #fff;
+			font-family: 'Lucida Grande', Geneva, Helvetica, Arial, sans-serif;
+			font-size: 0.8em;
+			width: 95%;
+			margin: 1.5em;
+			}
+
+			a
+			{
+			text-decoration: none;
+			color: #3366d0;
+			}
+
+			a:hover
+			{
+			text-decoration: underline;
+			}
+
+			a:visited
+			{
+			color: #003366;
+			}
+
+			/* @end */
+
+			/* @group Structure */
+
+			a img
+			{
+			border: 0px;
+			}
+
+			/* @end */
+
+			/* @group Headings */
+
+			#mainContainer
+			{
+			width: 95%;
+			margin: 1.5em auto;
+			}
+
+			h1
+			{
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
+			font: 2.2em 'Lucida Grande', Geneva, Helvetica, Arial, sans-serif;
+			font-weight: normal;
+			color: #1A7CB6;
+			mc-hyphenate: never;
+			}
+
+			h2
+			{
+			margin-top: 1em;
+			margin-bottom: 1em;
+			border-bottom: 1px solid #1A7CB6;
+			font: 1.8em 'Lucida Grande', Geneva, Helvetica, Arial, sans-serif;
+			font-weight: normal;
+			color: #1A7CB6;
+			}
+
+			h3
+			{
+			margin-top: 1em;
+			border-bottom: 0em;
+			font: 1em 'Lucida Grande', Geneva, Helvetica, Arial, sans-serif;
+			font-weight: bold;
+			color: #1A7CB6;
+			}
+
+			h4
+			{
+			font-size: 1.2em;
+			font-weight: bold;
+			margin-top: 2em;
+			}
+
+			h5
+			{
+			font-size: 1.1em;
+			font-weight: bold;
+			margin-top: 1.0em;
+			margin-bottom: 0em;
+			}
+
+			/* @end */
+
+			/* @group Index & hierarchy */
+
+			h6
+			{
+			font-size: 1em;
+			font-weight: bold;
+			margin-top: 0.5em;
+			margin-bottom: 0em;
+			border-bottom: 1px solid #289728;
+			color: #289728;
+			}
+
+			span.command
+			{
+			font-weight: bold;
+			font-size: 0.9em;
+			color: #8cc63d;
+			}
+
+			ol li
+			{
+			margin: 0.8em 1.6em;
+			mc-hyphenate: never;
+			}
+
+			p.indent2
+			{
+			margin-left: 1.5em;
+			}
+
+			p.indent3
+			{
+			margin-left: 3em;
+			}
+
+			p.wide
+			{
+			margin-bottom: 1.75em;
+			}
+
+			p.compact
+			{
+			margin-bottom: 0em;
+			}
+
+			p.compact2
+			{
+			margin-bottom: 0em;
+			margin-left: 1.5em;
+			}
+
+			p.compact3
+			{
+			margin-bottom: 0em;
+			margin-left: 3em;
+			}
+
+			p.compact4
+			{
+			margin-bottom: 0em;
+			margin-left: 5em;
+			}
+
+			p.footer
+			{
+			font-size: 0.25em;
+			}
+
+			.tableheading
+			{
+			margin-bottom: 0em;
+			color: #1A7CB6;
+			font-weight: bold;
+			}
+
+			.note
+			{
+			border: 1px solid #1A7CB6;
+			margin-bottom: 1em;
+			padding: 0.5em 1em;
+			}
+
+			div#navigationBar
+			{
+			margin-bottom: 2em;
+			}
+
+			div#next
+			{
+			margin-left: 2em;
+			float: right;
+			}
+
+			div#previous
+			{
+			float: right;
+			}
+
+			div#closeNavigationBar
+			{
+			clear: both;
+			}
+
+			div#Logos
+			{
+			margin-bottom: 2em;
+			}
+
+			div#SpeechAnywhere
+			{
+			float: right;
+			}
+
+			div#Nuance
+			{
+			float: left;
+			}
+
+			div#closeLogos
+			{
+			clear: both;
+			}
+
+			.column
+			{
+			float: left;
+			width: 200px;
+			font-size: 0.9em;
+			margin-right: 40px;
+			}
+
+			.column h5
+			{
+			font-size: 1.1em;
+			border-bottom: 1px solid #aaa;
+			}
+
+			.column ul
+			{
+			margin: 8px 0 0 0;
+			padding: 0;
+			list-style: none;
+			}
+
+			.column ul li
+			{
+			margin: 0 0 4px 0;
+			padding: 0;
+			}
+
+			.hierarchy
+			{
+			font-size: 0.9em;
+			}
+
+			.hierarchy h5
+			{
+			font-size: 1.1em;
+			border-bottom: 1px solid #aaa;
+			margin-bottom: 6px;
+			}
+
+			.hierarchy ul
+			{
+			list-style: none;
+			padding: 0;
+			margin: 4px 0 6px 20px;
+			}
+
+			.hierarchy ul li
+			{
+			margin: 0 0 4px 0;
+			padding: 0;
+			}
+
+			.clear
+			{
+			clear: left;
+			padding-top: 20px;
+			}
+
+			/* @end */
+
+			/* @group Info */
+
+			.footer
+			{
+			font-size: 0.9em;
+			border-top: 1px solid #1A7CB6;
+			}
+
+			table#classInfo
+			{
+			border-collapse: collapse;
+			margin-left: 2em;
+			font-size: 0.8em;
+			}
+
+			table#classInfo tr
+			{
+			border-top: 1px solid #d6e0e5;
+			border-bottom: 1px solid #d6e0e5;
+			vertical-align: top;
+			font-size: 0.8em;
+			}
+
+			table#classInfo tr td
+			{
+			padding: 0.7em;
+			font-size: 0.8em;
+			}
+
+			/* @end */
+
+			/* @group General */
+
+			table#classInfo tr td label
+			{
+			display: block;
+			width: 12em;
+			font-weight: bold;
+			font-size: 0.8em;
+			}
+
+			hr
+			{
+			border: 0;
+			color: #aaa;
+			background-color: #aaa;
+			height: 1px;
+			margin-bottom: 1.3em;
+			margin-top: 1.3em;
+			}
+
+			hr.footer
+			{
+			border: 0;
+			color: #1A7CB6;
+			background-color: #1A7CB6;
+			height: 1px;
+			margin-bottom: 1.3em;
+			margin-top: 1.3em;
+			}
+
+			p
+			{
+			margin: 0.4em 0 0.8em 0;
+			mc-hyphenate: never;
+			}
+
+			p#lastUpdated
+			{
+			text-align: center;
+			}
+
+			code,
+			tt,
+			samp,
+			pre
+			{
+			font-size: 100%;
+			font-family: Courier, monospace;
+			color: #666;
+			}
+
+			code.methodDeclaration
+			{
+			display: block;
+			color: #000;
+			}
+
+			code.methodDeclaration .parameter
+			{
+			font-family: 'Lucida Grande', Geneva, Helvetica, Arial, sans-serif;
+			font-style: italic;
+			font-size: 1em;
+			}
+
+			ul
+			{
+			list-style: square;
+			margin: 0.8em 1.6em;
+			mc-hyphenate: never;
+			}
+
+			ul li
+			{
+			margin-bottom: 0.6em;
+			}
+
+			ul.methods
+			{
+			list-style: none;
+			margin-left: 0.8em;
+			margin-top: 0.4em;
+			}
+
+			ul.methods li
+			{
+			margin-bottom: 0.3em;
+			}
+
+			ul.seeAlso
+			{
+			list-style: none;
+			margin: 0;
+			}
+
+			ul.seeAlso li
+			{
+			margin-bottom: 0.3em;
+			}
+
+			span.specialType
+			{
+			font-style: italic;
+			font-size: 1em;
+			color: #999966;
+			}
+
+			ul.seeMethods
+			{
+			list-style: none;
+			margin-left: 0em;
+			margin-top: 0.4em;
+			}
+
+			dl.parameterList
+			{
+			list-style: none;
+			margin-left: 0;
+			margin-top: 0.2em;
+			}
+
+			dl.parameterList dt
+			{
+			font-style: italic;
+			}
+
+			dl.parameterList dd
+			{
+			margin-left: 1.8em;
+			}
+
+			/* @end */
+
+			/* @group Classes */
+
+			.methodBrief
+			{
+			margin-bottom: 0.6em;
+			}
+
+			.example
+			{
+			border: 1px solid #c9d1d7;
+			background-color: #f1f5f9;
+			margin-bottom: 0.5em;
+			padding: 0.5em 1em;
+			}
+
+			.warning
+			{
+			border: 1px solid #289728;
+			background-color: #f0f3f7;
+			margin-bottom: 1em;
+			padding: 0.5em 1em;
+			}
+
+			/* @end */
+
+			/* @group Tooltips */
+
+			.bug
+			{
+			border: 1px solid #000;
+			background-color: #ffffcc;
+			margin-bottom: 0.5em;
+			padding: 0.5em 1em;
+			}
+
+			ul.methods li span.tooltipRegion span.tooltip
+			{
+			font-size: 0.9em;
+			display: none;
+			padding: 0.1em;
+			border: 1px solid #aaa;
+			background-color: #fdfec8;
+			color: #000;
+			text-align: left;
+			}
+
+			ul.methods li span.tooltipRegion:hover span.tooltip
+			{
+			display: block;
+			position: absolute;
+			margin-left: 2em;
+			}
+
+			/* @end */
+
+			.table1
+			{
+			font-size: 1.0em;
+			}
+
+			table
+			{
+			font-size: 1.0em;
+			}
+	
+-->
+        </style>
+    </head>
+    <body>
+        <h1><a name="Top"></a>Readme - 360 | SpeechAnywhere Services (Browser edition): How to enable microphone button events</h1>
+        <p>360 | SpeechAnywhere Services&#160;(Browser edition) provides components which you can use to enable button events for certain microphones in Microsoft Internet Explorer.</p>
+        <p class="warning"><b>Important:</b> In the current release this functionality is provided in demo quality only; do not use it in a production environment.</p>
+        <h2>Table of contents</h2>
+        <ol>
+            <li><a href="#Functionality">Functionality</a>
+            </li>
+            <li><a href="#Deployment">Deployment and activation procedure</a>
+            </li>
+            <li><a href="#Troubleshooting">Troubleshooting</a>
+            </li>
+        </ol>
+        <h2><a name="Functionality"></a>Functionality</h2>
+        <p>If button events are enabled, 360 | SpeechAnywhere Services reacts to microphone buttons in the following way:</p>
+        <ul>
+            <li>Pressing Record on the microphone starts/stops recording.</li>
+            <li>Pressing Fast Forward/Fast Rewind on the microphone moves the speech focus to the next/previous text control.</li>
+        </ul>
+        <p><a href="#Top">Back to Top</a>
+        </p>
+        <h2><a name="Deployment"></a>Deployment and activation procedure</h2>
+        <p>To enable microphone button events, do the following:</p>
+        <ol>
+            <li>Place the following binaries into a folder on your web server:</li>
+            <ul>
+                <li>NuanceSpeechAnywhereBrowserHelper.dll</li>
+                <li>PIA.SmXAudioLib.dll</li>
+                <li>NuanceSpeechAnywhereBrowserHelperSFX.exe</li>
+            </ul>
+            <li>Add the following object tag to each page that embeds the Nuance&#160;SpeechAnywhere SDK and that you want to support microphone buttons for:</li>
+        </ol>
+        <p class="indent2"><code>&lt;object height="0" width="0" classid="&lt;path&gt;/NuanceSpeechAnywhereBrowserHelper.dll#Nuance.SpeechAnywhere.BrowserHelper" id="NUSABrowserHelper"&gt;</code> <![CDATA[ ]]></p>
+        <p class="indent2">If NuanceSpeechAnywhereBrowserHelper.dll and the other binaries are in the same location as the web page, specifying the path is not required.</p>
+        <p class="note"><b>Note:</b> The drivers for USB&#160;SpeechMike and PowerMic button support are embedded in the NuanceSpeechAnywhereBrowserHelperSFX.exe package. For all other supported microphones (Olympus and Grundig) you must get the USB&#160;driver package from the respective vendor and install it separately on each client.</p>
+        <p><a href="#Top">Back to Top</a>
+        </p>
+        <h2><a name="Troubleshooting"></a>Troubleshooting</h2>
+        <p>If 360 | SpeechAnywhere Services does not react to button presses on the microphone, make sure that Microsoft Internet Explorer allows the execution of Active-X controls implemented in .NET:</p>
+        <ul>
+            <li>Your .Net installation must allow execution of code from the web server. This can be enabled using the following command line:</li>
+            <p><code>"%WINDIR%\Microsoft.NET\Framework\v2.0.50727\CasPol.exe" -q -machine -addgroup 1. -site localhost FullTrust</code>
+            </p>
+            <p><code>localhost</code> must be replaced with the name of the web server.</p>
+            <li>Internet Explorer security settings must be set to "low" for the web server or security settings must be set to a custom level that allows execution of Active-X controls implemented in .NET.</li>
+        </ul>
+        <p><a href="#Top">Back to Top</a>
+        </p>
+        <hr class="footer" />
+        <p>© 2011-2013 Nuance Communications, Inc. All rights reserved.
+		</p>
+    </body>
+</html>

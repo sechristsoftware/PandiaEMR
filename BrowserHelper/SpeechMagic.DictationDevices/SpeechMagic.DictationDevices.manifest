@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+
+ <assemblyIdentity 
+    processorArchitecture="x86" 
+		version="17.4.10.4"
+    type="win32"
+    name="SpeechMagic.DictationDevices"/>
+ 	
+	<file name="NcaAudiodev.dll" hashalg="SHA1"/>
+	<file name="SmXLog.dll" hashalg="SHA1"/>
+	<file name="SmAudioDrv.dll" hashalg="SHA1"/>
+	<file name="SmControlDrv.dll" hashalg="SHA1"/>
+	<file name="PspLog.dll" hashalg="SHA1"/>
+	<file name="SmDigtaMicPlugin.dll" hashalg="SHA1"/>
+	<file name="SmOlympusMicPlugin.dll" hashalg="SHA1"/>
+	<file name="SmPowerMicPlugin.dll" hashalg="SHA1"/>
+	<file name="SmSpeechMikePlugin.dll" hashalg="SHA1"/>
+			
+	<file name="SmXAudio.dll" hashalg="SHA1">
+		<comClass 
+			clsid="{B55AA133-EF20-4BFB-9550-6051D317C0D6}" 
+			tlbid="{B55AA130-EF20-4BFB-9550-6051D317C0D6}" 
+			description="SmAudio Class" 
+			threadingModel="Apartment" />
+		
+		<typelib 
+			tlbid="{B55AA130-EF20-4BFB-9550-6051D317C0D6}" 
+			version="1.0" 
+			helpdir="" 
+			flags="HASDISKIMAGE" />
+		
+	</file>		
+		
+				
+	<comInterfaceExternalProxyStub 
+			name="ISmAudio" 
+			iid="{B55AA131-EF20-4BFB-9550-6051D317C0D6}" 
+			tlbid="{B55AA130-EF20-4BFB-9550-6051D317C0D6}" 
+			proxyStubClsid32="{00020424-0000-0000-C000-000000000046}" />
+		
+	<comInterfaceExternalProxyStub 
+			name="IAudioDevice" 
+			iid="{B55AA160-EF20-4BFB-9550-6051D317C0D6}" 
+			tlbid="{B55AA130-EF20-4BFB-9550-6051D317C0D6}" 
+			proxyStubClsid32="{00020424-0000-0000-C000-000000000046}" />			
+						
+		
+			
+</assembly>
