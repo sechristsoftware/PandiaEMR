@@ -22,7 +22,7 @@
     $landingpage = "index.php?site=".$_GET['site'];
 
     //includes
-    require_once('C:/xampp/htdocs/openemr/interface/globals.php');
+    require_once('../interface/globals.php');
 
     ini_set("error_log",E_ERROR || ~E_NOTICE);
     //exit if portal is turned off
@@ -94,8 +94,8 @@
 <head>
     <title><?php echo xlt('Patient Portal Login'); ?></title>
 
-    <script type="text/javascript" src="js/jquery-1.5.js"></script>
-    <script type="text/javascript" src="js/jquery.gritter.min.js"></script>
+    <script type="text/javascript" src="../library/js/jquery-1.5.js"></script>
+    <script type="text/javascript" src="../library/js/jquery.gritter.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/jquery.gritter.css" />
     <link rel="stylesheet" type="text/css" href="css/base.css" />

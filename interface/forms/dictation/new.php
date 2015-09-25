@@ -12,18 +12,8 @@ $returnurl = $GLOBALS['concurrent_layout'] ? 'encounter_top.php' : 'patient_enco
 <html><head>
 <?php html_header_show();?>
 <link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
-
-    
-    </head>
+</head>
 <body class="body_top">
-    <script language="javascript" type="text/javascript">
-	    function NUSA_configure() {
-
-	        NUSA_userId = "john_doe";
-	           
-	        NUSA_applicationName = "Pandia_EMR";
-	    }
-	</script>	
 <form method=post action="<?php echo $rootdir;?>/forms/dictation/save.php?mode=new" name="my_form">
 <span class="title"><?php echo xlt('Speech Dictation'); ?></span><br><br>
 <span class=text><?php echo xlt('Dictation: '); ?></span><br><textarea cols=80 rows=24 wrap=virtual name="dictation" ></textarea><br>

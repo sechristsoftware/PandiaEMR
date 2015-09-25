@@ -37,17 +37,17 @@ else {
 $ignoreAuth = true;
 global $ignoreAuth;
 
- require_once("/openemr/interface/globals.php");
- require_once("/openemr/library/patient.inc");
- require_once("/openemr/library/acl.inc");
- require_once("/openemr/library/classes/Address.class.php");
- require_once("/openemr/library/classes/InsuranceCompany.class.php");
- require_once("/openemr/library/classes/Document.class.php");
- require_once("/openemr/library/options.inc.php");
- require_once("/openemr/interface/patient_file/history/history.inc.php");
- require_once("/openemr/library/formatting.inc.php");
- require_once("/openemr/library/edi.inc");
- include_once("/openemr/library/lists.inc");
+ require_once("../interface/globals.php");
+ require_once("$srcdir/patient.inc");
+ require_once("$srcdir/acl.inc");
+ require_once("$srcdir/classes/Address.class.php");
+ require_once("$srcdir/classes/InsuranceCompany.class.php");
+ require_once("$srcdir/classes/Document.class.php");
+ require_once("$srcdir/options.inc.php");
+ require_once("../interface/patient_file/history/history.inc.php");
+ require_once("$srcdir/formatting.inc.php");
+ require_once("$srcdir/edi.inc");
+ include_once("$srcdir/lists.inc");
 
 ?>
 <html>

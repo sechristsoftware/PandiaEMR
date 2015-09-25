@@ -123,7 +123,7 @@ function generate_select_list($tag_name, $list_id, $currvalue, $title, $empty_na
 	$selectEmptyName = xlt($empty_name);
 	if ($empty_name)
 		$s .= "<option value=''>" . $selectEmptyName . "</option>";
-	$lres = sqlStatement("SELECT * FROM list_options WHERE list_id = ? ORDER BY seq, title", array($list_id));
+	$lres = sqlStatement("SELECT * FROM list_options WHERE list_id = ? AND activity=1 ORDER BY seq, title", array($list_id));
 	$got_selected = FALSE;
 	
 	while ( $lrow = sqlFetchArray ( $lres ) ) {
@@ -140,6 +140,21 @@ function generate_select_list($tag_name, $list_id, $currvalue, $title, $empty_na
 		$optionLabel = text(xl_list_label($lrow ['title']));
 		$s .= ">$optionLabel</option>\n";
 	}
+
+	/*
+	  To show the inactive item in the list if the value is saved to database
+	  */
+	  if (!$got_selected && strlen($currvalue) > 0)
+	  {
+	    $lres_inactive = sqlStatement("SELECT * FROM list_options " .
+	    "WHERE list_id = ? AND activity = 0 AND option_id = ? ORDER BY seq, title", array($list_id, $currvalue));
+	    $lrow_inactive = sqlFetchArray($lres_inactive);
+	    if($lrow_inactive['option_id']) {
+	      $optionValue = htmlspecialchars( $lrow_inactive['option_id'], ENT_QUOTES);
+	      $s .= "<option value='$optionValue' selected>" . htmlspecialchars( xl_list_label($lrow_inactive['title']), ENT_NOQUOTES) . "</option>\n";
+	      $got_selected = TRUE;
+	    }
+	  }
 
 	if (!$got_selected && strlen ( $currvalue ) > 0 && !$multiple) {
 		$list_id = $backup_list;
@@ -353,7 +368,7 @@ function generate_form_field($frow, $currvalue) {
       }
       echo ">$uname</option>";
     }
-    if (!$got_selected && strlen($currvalue) > 0) {
+    if (!$got_selected && $currvalue) {
       echo "<option value='" . attr($currvalue) . "' selected>* " . text($currvalue) . " *</option>";
       echo "</select>";
       echo " <font color='red' title='" . xla('Please choose a valid selection from the list.') . "'>" . xlt('Fix this') . "!</font>";
@@ -383,7 +398,7 @@ function generate_form_field($frow, $currvalue) {
       }
       echo ">$uname</option>";
     }
-    if (!$got_selected && strlen($currvalue) > 0) {
+    if (!$got_selected && $currvalue) {
       echo "<option value='" . attr($currvalue) . "' selected>* " . text($currvalue) . " *</option>";
       echo "</select>";
       echo " <font color='red' title='" . xla('Please choose a valid selection from the list.') . "'>" . xlt('Fix this') . "!</font>";
@@ -413,7 +428,7 @@ function generate_form_field($frow, $currvalue) {
       }
       echo ">$optionLabel</option>";
     }
-    if (!$got_selected && strlen($currvalue) > 0) {
+    if (!$got_selected && $currvalue) {
       echo "<option value='" . attr($currvalue) . "' selected>* " . text($currvalue) . " *</option>";
       echo "</select>";
       echo " <font color='red' title='" . xla('Please choose a valid selection from the list.') . "'>" . xlt('Fix this') . "!</font>";
@@ -567,7 +582,7 @@ function generate_form_field($frow, $currvalue) {
       }
       echo ">$optionLabel</option>";
     }
-    if (!$got_selected && strlen($currvalue) > 0) {
+    if (!$got_selected && $currvalue) {
       echo "<option value='" . attr($currvalue) . "' selected>* " . text($currvalue) . " *</option>";
       echo "</select>";
       echo " <font color='red' title='" . xla('Please choose a valid selection from the list.') . "'>" . xlt('Fix this') . "!</font>";
@@ -620,7 +635,7 @@ function generate_form_field($frow, $currvalue) {
       }
       echo ">" . text(xl_appt_category($crow['pc_catname'])) . "</option>";
     }
-    if (!$got_selected && strlen($currvalue) > 0) {
+    if (!$got_selected && $currvalue) {
       echo "<option value='" . attr($currvalue) . "' selected>* " . text($currvalue) . " *</option>";
       echo "</select>";
       echo " <font color='red' title='" . xla('Please choose a valid selection from the list.') . "'>" . xlt('Fix this') . "!</font>";
@@ -2378,6 +2393,7 @@ function display_layout_tabs($formtype, $result1, $result2='') {
   while ($frow = sqlFetchArray($fres)) {
 	  $this_group = $frow['group_name'];
       $group_name = substr($this_group, 1);
+	  if ($group_name === 'Employer' && $GLOBALS['omit_employers']) continue;
       ?>
 		<li <?php echo $first ? 'class="current"' : '' ?>>
 			<a href="/play/javascript-tabbed-navigation/" id="header_tab_<?php echo ".htmlspecialchars($group_name,ENT_QUOTES)."?>">
@@ -2405,6 +2421,8 @@ function display_layout_tabs_data($formtype, $result1, $result2='') {
 		$list_id    = isset($frow['list_id']) ? $frow['list_id'] : "";
 		$currvalue  = '';
 
+		if (substr($this_group,1,8) === 'Employer' && $GLOBALS['omit_employers']) continue;
+		
 		$group_fields_query = sqlStatement("SELECT * FROM layout_options " .
 		"WHERE form_id = ? AND uor > 0 AND group_name = ? " .
 		"ORDER BY seq", array($formtype, $this_group) );
@@ -2520,6 +2538,8 @@ function display_layout_tabs_data_editable($formtype, $result1, $result2='') {
 		$list_id    = $frow['list_id'];
 		$currvalue  = '';
 
+		if (substr($this_group,1,8) === 'Employer' && $GLOBALS['omit_employers']) continue;
+		
 		$group_fields_query = sqlStatement("SELECT * FROM layout_options " .
 		"WHERE form_id = ? AND uor > 0 AND group_name = ? " .
 		"ORDER BY seq", array($formtype,$this_group) );

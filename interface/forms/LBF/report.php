@@ -6,7 +6,7 @@
 // as published by the Free Software Foundation; either version 2
 // of the License, or (at your option) any later version.
 
-include_once("../../globals.php");
+include_once(dirname(__FILE__).'/../../globals.php');
 include_once($GLOBALS["srcdir"] . "/api.inc");
 
 // This function is invoked from printPatientForms in report.inc
@@ -31,9 +31,9 @@ function lbf_report($pid, $encounter, $cols, $id, $formname) {
     }
     // For brevity, skip fields without a value.
     if ($currvalue === '') continue;
-    $arr[$field_id] = $currvalue;
-    // A previous change effectively did this instead, not sure if desirable? -- Rod
-    // $arr[$field_id] = wordwrap($currvalue, 30, "\n", true);
+    // $arr[$field_id] = $currvalue;
+    // A previous change did this instead of the above, not sure if desirable? -- Rod
+    $arr[$field_id] = wordwrap($currvalue, 30, "\n", true);
   }
   echo "<table>\n";
   display_layout_rows($formname, $arr);

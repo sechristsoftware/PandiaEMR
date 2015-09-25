@@ -2,6 +2,8 @@
 /**
  * Encounter list.
  *
+ * Copyright (C) 2015 Roberto Vasquez <robertogagliotta@gmail.com>
+ *
  * LICENSE: This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -15,6 +17,7 @@
  *
  * @package OpenEMR
  * @author  Brady Miller <brady@sparmy.com>
+ * @author  Roberto Vasquez <robertogagliotta@gmail.com>
  * @link    http://www.open-emr.org
  */
 
@@ -48,6 +51,9 @@ $issue = empty($_GET['issue']) ? 0 : 0 + $_GET['issue'];
 
  //maximum number of encounter entries to display on this page:
  // $N = 12;
+ 
+ //Get the default encounter from Globals
+ $default_encounter = $GLOBALS['default_encounter_view']; //'0'=clinical, '1' = billing
 
  // Get relevant ACL info.
  $auth_notes_a  = acl_check('encounters', 'notes_a');
@@ -75,7 +81,8 @@ $tmp = sqlQuery("select authorized from users " .
   "where id = ?", array($_SESSION['authUserID']) );
 $billing_view = ($tmp['authorized'] || $GLOBALS['athletic_team']) ? 0 : 1;
 if (isset($_GET['billing']))
-  $billing_view = empty($_GET['billing']) ? 0 : 1;
+    {$billing_view = empty($_GET['billing']) ? 0 : 1;
+    }else $billing_view = ($default_encounter == 0) ? 0 : 1;
 
 //Get Document List by Encounter ID
 function getDocListByEncID($encounter,$raw_encounter_date,$pid){
@@ -162,7 +169,7 @@ function generatePageElement($start,$pagesize,$billing,$issue,$text)
     {
         $start = 0;
     }
-    $url="encounters.php?"."pagestart=".$start."&"."pagesize=".$pagesize;
+    $url="encounters.php?"."pagestart=".attr($start)."&"."pagesize=".attr($pagesize);
     $url.="&billing=".$billing;
     $url.="&issue=".$issue;
 
@@ -303,7 +310,7 @@ else
 {
     $pagestart=0;
 }
-$getStringForPage="&pagesize=".$pagesize."&pagestart=".$pagestart;
+$getStringForPage="&pagesize=".attr($pagesize)."&pagestart=".attr($pagestart);
 
 ?>
 <?php if ($billing_view) { ?>

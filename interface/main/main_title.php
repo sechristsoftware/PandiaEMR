@@ -17,14 +17,6 @@ include_once('../globals.php');
         display:block;
       }
 </style>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" language="javascript">
 function toencounter(rawdata) {
@@ -122,30 +114,17 @@ $res = sqlQuery("select * from users where username='".$_SESSION{"authUser"}."'"
 </td>
 
 <td align="right">
-    <!-- Split button
-<div class="btn-group">
-  <button type="button" class="btn btn-warning"><span class="text title_bar_top" title="<?php echo htmlspecialchars( xl('Authorization group') .': '.$_SESSION['authGroup'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($res{"fname"}.' '.$res{"lname"},ENT_NOQUOTES); ?></span></button>
-  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="caret"></span>
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a href='main_title.php' onclick="javascript:parent.left_nav.goHome();return false;" >Home</a></li>
-    <li><a href="/Documentation/UsersGuide.pdf" target="_blank" id="help_link" >Manual</a></li>
-      <li><a href="../logout.php" target="_top" class="btn btn-default btn-sm" style='float:right;' id="logout_link" onclick="top.restoreSession()" >Log Out</a></li>
-  </ul>
-</div>-->
 	<table cellspacing="0" cellpadding="1" style="margin:0px 3px 0px 0px;"><tr>
 		<td align="right" class="text" style="vertical-align:text-bottom;"><a href='main_title.php' onclick="javascript:parent.left_nav.goHome();return false;" ><?php xl('Home','e'); ?></a>
 		&nbsp;|&nbsp;
-		<a href="/Documentation/UsersGuide.pdf" target="_blank" id="help_link" >
+		<a href="http://open-emr.org/wiki/index.php/OpenEMR_4.2.0_Users_Guide" target="_blank" id="help_link" >
 			<?php xl('Manual','e'); ?></a>&nbsp;</td>
 		<td align="right" style="vertical-align:top;"><a href="../logout.php" target="_top" class="css_button_small" style='float:right;' id="logout_link" onclick="top.restoreSession()" >
 			<span><?php echo htmlspecialchars( xl('Logout'), ENT_QUOTES) ?></span></a></td>
 	</tr><tr>
 		<td colspan='2' valign="baseline" align='right'><B>
 			<span class="text title_bar_top" title="<?php echo htmlspecialchars( xl('Authorization group') .': '.$_SESSION['authGroup'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($res{"fname"}.' '.$res{"lname"},ENT_NOQUOTES); ?></span></span></td>
-    	</tr></table>-->
+    	</tr></table>
 </td>
 </tr>
 </table>
