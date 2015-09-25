@@ -5,8 +5,8 @@
 // upgrade file is the starting point for the next upgrade.
 $v_major = '4';
 $v_minor = '2';
-$v_patch = '0';
-$v_tag   = ''; // minor revision number, should be empty for production releases
+$v_patch = '1';
+$v_tag   = '-dev'; // minor revision number, should be empty for production releases
 
 // A real patch identifier. This is incremented when we release a patch for a
 // production release. Note the above $v_patch variable is a misnomer and actually
@@ -17,7 +17,7 @@ $v_realpatch = '0';
 // is a database change in the course of development.  It is used
 // internally to determine when a database upgrade is needed.
 //
-$v_database = 123;
+$v_database = 137;
 
 // Access control version identifier, this is to be incremented whenever there
 // is a access control change in the course of development.  It is used
@@ -28,5 +28,5 @@ $v_database = 123;
 $v_acl = 3;
 
 //Offsite Portal SOAP functions version, which are at myportal directory.
-$v_offsite_portal='1.46';
+$v_offsite_portal='1.47';
 ?>

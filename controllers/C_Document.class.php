@@ -384,7 +384,7 @@ class C_Document extends Controller {
     }
 	
 	
-	function retrieve_action($patient_id="",$document_id,$as_file=true,$original_file=true) {
+	function retrieve_action($patient_id="",$document_id,$as_file=true,$original_file=true,$disable_exit=false) {
 	    
 	    $encrypted = $_POST['encrypted'];
 		$passphrase = $_POST['passphrase'];
@@ -408,6 +408,12 @@ class C_Document extends Controller {
 	        else if ($original_file == "false") {
 		        $original_file=false;   
 		}
+                if ($disable_exit == "true") {
+                        $disable_exit=true;
+                }
+                else if ($disable_exit == "false") {
+                        $disable_exit=false;
+                }
 	    
 		$d = new Document($document_id);
 		$url =  $d->get_url();
@@ -430,6 +436,9 @@ class C_Document extends Controller {
 				$this->document_upload_download_log($d->get_foreign_id(),$log_content);
 				die(xl("File retrieval from CouchDB failed"));
 			}
+                        if($disable_exit == true) {
+                            return base64_decode($content);
+                        }
 			header('Content-Description: File Transfer');
 			header('Content-Transfer-Encoding: binary');
 			header('Expires: 0');
@@ -507,14 +516,19 @@ class C_Document extends Controller {
 		else {
 		        if ($original_file) {
 			    //normal case when serving the file referenced in database
+                            if($disable_exit == true) {
+                                $f = fopen($url,"r");
+                                $filetext = fread( $f, filesize($url) );
+                                return $filetext;
+                            }
                 header('Content-Description: File Transfer');
                 header('Content-Transfer-Encoding: binary');
                 header('Expires: 0');
                 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
                 header('Pragma: public');
-			    $f = fopen($url,"r");
+                            $f = fopen($url,"r");
 			    if ( $doEncryption ) {
-			  		$filetext = fread( $f, filesize($url) );
+                                $filetext = fread( $f, filesize($url) );
 			        $ciphertext = $this->encrypt( $filetext, $passphrase );
 			        $tmpfilepath = $GLOBALS['temporary_files_dir'];
 			        $tmpfilename = "/encrypted_".$d->get_url_file();
@@ -545,6 +559,9 @@ class C_Document extends Controller {
 				else{
 				$url = $GLOBALS['OE_SITE_DIR'] . '/documents/' . $from_pathname . '/' . $convertedFile;
                 }
+                                if($disable_exit == true) {
+                                    return ;
+                                }
 				header("Pragma: public");
 			    header("Expires: 0");
 			    header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
@@ -946,54 +963,50 @@ class C_Document extends Controller {
 		
 		return $this->fetch($GLOBALS['template_dir'] . "documents/" . $this->template_mod . "_list.html");
 	}
-	
-	/*
-	*	This is a recursive function to rename a file to something that doesn't already exist.
-	*       Modified in version 3.2.0 to place a counter within the filename (previously was placed at end)
-	*        to ensure documents opened correctly by external browser viewers. If the counter is at the
-        *        end of the file, then will use it (to continue to work with older files), however all new
-	*        counters will be placed within filenames. 
-	*/
-	function _rename_file($fname) {
-		$file = basename($fname);
-		$fparts = split("\.",$fname);
-		$path = dirname($fname);
-	        if (count($fparts) > 1) {
-		  if (is_numeric($fparts[count($fparts) -2]) && (count($fparts) > 2)) {
-                        //increment the counter in filename
-			$fparts[count($fparts) -2] = $fparts[count($fparts) -2] + 1;
-		        $fname = join(".",$fparts);
-		  }
-		  elseif (is_numeric($fparts[count($fparts) -1]) && $fparts[count($fparts) -1] < 1000) {
-		        //increment counter at end of filename (so compatible with previous openemr version files
-			$fparts[count($fparts) -1] = $fparts[count($fparts) -1] + 1;
-		        $fname = join(".",$fparts);
-		  }
-	          elseif (is_numeric($fparts[count($fparts) -1])) {
-		        //leave date at end and place counter in filename
-			array_splice($fparts, -1, 0, "1");
-		        $fname = join(".",$fparts);
-		  } 		    
-		  else {
-		        //add the counter to filename
-		        array_splice($fparts, -1, 0, "1");
-		        $fname = join(".",$fparts);
-		  }
-	        }
-	        else { // (count($fparts) == 1)
-		  //place counter at end of filename
-		  array_push($fparts,"1");
-		  $fname = join(".",$fparts);
-		}
-	    
-		if (file_exists($fname)) {
-			return $this->_rename_file($fname);
-		}
-		else {
-			return($fname);	
-		}
-	}
-	
+
+    /*	This is a recursive function to rename a file to something that doesn't already exist.
+     *      Modified in version 3.2.0 to place a counter within the filename (previously was placed
+     *      at end) to ensure documents opened correctly by external browser viewers. If the
+     *      counter is at the end of the file, then will use it (to continue to work with older
+     *      files), however all new counters will be placed within filenames.
+     *
+     *      Modified to only deal with base file name when renaming, to avoid issues with directory
+     *      names with dots.
+     */
+    function _rename_file($fname) {
+        $path = dirname($fname);
+        $file = basename($fname);
+
+        $fparts = split("\.",$file);
+
+        if (count($fparts) > 1) {
+            if (is_numeric($fparts[count($fparts) -2]) && (count($fparts) > 2)) {
+                //increment the counter in filename
+                $fparts[count($fparts) -2] = $fparts[count($fparts) -2] + 1;
+            } elseif (is_numeric($fparts[count($fparts) -1]) && $fparts[count($fparts) -1] < 1000) {
+                //increment counter at end of filename (so compatible with previous openemr version files
+                $fparts[count($fparts) -1] = $fparts[count($fparts) -1] + 1;
+            } elseif (is_numeric($fparts[count($fparts) -1])) {
+                //leave date at end and place counter in filename
+                array_splice($fparts, -1, 0, "1");
+            } else {
+                //add the counter to filename
+                array_splice($fparts, -1, 0, "1");
+            }
+        } else { // (count($fparts) == 1)
+            //place counter at end of filename
+            array_push($fparts, "1");
+        }
+
+        $fname = $path.DIRECTORY_SEPARATOR.join(".", $fparts);
+
+        if (file_exists($fname)) {
+            return $this->_rename_file($fname);
+        } else {
+            return($fname);
+        }
+    }
+
 	function &_array_recurse($array,$categories = array()) {
 		if (!is_array($array)) {
 			$array = array();	
