@@ -1505,7 +1505,7 @@ $GLOBALS_METADATA = array(
     'hylafax_basedir' => array(
       xl('Hylafax Directory'),
       'text',                           // data type
-      '/var/spool/fax',                 // default
+      '/var/www/html/pandiaemr/fax',                 // default
       xl('Location where Hylafax stores faxes.')
     ),
 
@@ -1526,7 +1526,7 @@ $GLOBALS_METADATA = array(
     'scanner_output_directory' => array(
       xl('Scanner Directory'),
       'text',                           // data type
-      '/mnt/scan_docs',                 // default
+      '/var/www/html/pandiaemr/scan',                 // default
       xl('Location where scans are stored.')
     ),
 
