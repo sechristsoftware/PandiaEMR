@@ -221,7 +221,7 @@ $GLOBALS_METADATA = array(
       '1',                              // default = true
       xl('Enable Fees In Left Menu')
     ),
-    // EDI history  2012-09-13 
+    // EDI history  2012-09-13
     'enable_edihistory_in_left_menu' => array(
       xl('Enable EDI History In Left Menu'),
       'bool',                           // data type
@@ -235,7 +235,7 @@ $GLOBALS_METADATA = array(
       'http://open-emr.org/',
       xl('URL for OpenEMR support.')
     ),
-      
+
     'encounter_page_size' => array(
       xl('Encounter Page Size'),
       array(
@@ -297,9 +297,9 @@ $GLOBALS_METADATA = array(
       xl('All Languages Allowed'),
       'bool',                           // data type
       '1',                              // default = true
-      xl('Allow all available languages as choices on menu at login.')			     				     
+      xl('Allow all available languages as choices on menu at login.')
     ),
-			
+
     'language_menu_other' => array(
       xl('Allowed Languages'),
       'm_lang',                         // data type
@@ -367,7 +367,7 @@ $GLOBALS_METADATA = array(
       '1',                              // default = Both/US
       xl('Applies to the Vitals form and Growth Chart')
     ),
-    
+
     'us_weight_format' => array(
         xl('Display Format for US Weights'),
         array(
@@ -402,7 +402,7 @@ $GLOBALS_METADATA = array(
       '0',
       xl('Format used to display most dates.')
     ),
-    
+
     'time_display_format' => array(
       xl('Time Display Format'),
       array(
@@ -465,7 +465,7 @@ $GLOBALS_METADATA = array(
       'num',
       '3',
       xl('If YMD is selected for age display, switch to just Years when patients older than this value in years')
-    ),      
+    ),
   ),
 
   // Features Tab
@@ -586,7 +586,7 @@ $GLOBALS_METADATA = array(
       '0',                              // default
       xl('Set a facility cookie to remember the selected facility between logins.')
     ),
-    
+
     'receipts_by_provider' => array(
       xl('Print Receipts by Provider'),
       'bool',
@@ -635,13 +635,13 @@ $GLOBALS_METADATA = array(
       '0',                              // default = false
       xl('This will force the Billing Widget in the Patient Summary screen to always be open.')
     ),
-      
+
     'num_past_appointments_to_show' => array(
       xl('Past Appointment Display Widget'),
       'num',                           // data type
       '0',                             // default = false
       xl('A positive number will show that many past appointments on a Widget in the Patient Summary screen (a negative number will show the past appointments in descending order)')
-    ),      
+    ),
 
     'activate_ccr_ccd_report' => array(
       xl('Activate CCR/CCD Reporting'),
@@ -649,7 +649,7 @@ $GLOBALS_METADATA = array(
       '1',                              // default = true
       xl('This will activate the CCR(Continuity of Care Record) and CCD(Continuity of Care Document) reporting.')
     ),
-    
+
     'hide_document_encryption' => array(
       xl('Hide Encryption/Decryption Options In Document Management'),
       'bool',                           // data type
@@ -663,7 +663,7 @@ $GLOBALS_METADATA = array(
       '0',                              // default = true
       xl('This will use the custom immunizations list rather than the standard CVX immunization list.')
     ),
-    
+
       'cms_1500' => array(
       xl('CMS 1500 Paper Form Format'),
       array(
@@ -673,7 +673,7 @@ $GLOBALS_METADATA = array(
       '0',                              // default
       xl('This specifies which revision of the form the billing module should generate')
     ),
-     
+
       'cms_1500_box_31_format' => array(
       xl('CMS 1500: Box 31 Format'),
       array(
@@ -685,7 +685,7 @@ $GLOBALS_METADATA = array(
       xl('This specifies whether to include date in Box 31.')
     ),
 
-      
+
      'cms_1500_box_31_date' => array(
       xl('CMS 1500: Date in Box 31 (Signature)'),
       array(
@@ -696,14 +696,14 @@ $GLOBALS_METADATA = array(
       '0',                              // default
       xl('This specifies whether to include date in Box 31.')
     ),
-	  
+
 	'amendments' => array (
 		xl('Amendments'),
 		'bool',                           // data type
 		'1',                              // default = true
 		xl('Enable amendments feature')
 	),
-	
+
     'use_custom_daysheet' => array(
       xl('Use Custom End of Day Report'),
       array(
@@ -715,7 +715,7 @@ $GLOBALS_METADATA = array(
       '1',                     // default = Print End of Day Report 1
       xl('This will allow the use of the custom End of Day report and indicate which report to use.')
     ),
-     
+
     'daysheet_provider_totals' => array(
       xl('End of Day by Provider or allow Totals Only'),
       array(
@@ -730,7 +730,7 @@ $GLOBALS_METADATA = array(
     // E-Sign Tab
     //
     'E-Sign' => array(
-            
+
     'esign_all' => array(
       xl('Allows E-Sign on the entire encounter'),
       'bool',                           // data type
@@ -744,7 +744,7 @@ $GLOBALS_METADATA = array(
       '0',                              // default = false
       xl('This will disable the Edit button on all forms whose parent encounter is e-signed')
     ),
-            
+
     'esign_individual' => array(
       xl('Allows E-Signing Individual Forms'),
       'bool',                           // data type
@@ -758,7 +758,7 @@ $GLOBALS_METADATA = array(
       '1',                              // default = false
       xl('This will disable the Edit button on any form that is e-signed')
     ),
-            
+
     'esign_lock_toggle' => array(
       xl('Enable lock toggle'),
       'bool',                           // data type
@@ -909,7 +909,7 @@ $GLOBALS_METADATA = array(
       '1',                              // default
       xl('Automatically create a new encounter when appointment status is set to "@" (arrived).')
     ),
-    
+
     'event_color' => array(
       xl('Appointment/Event Color'),
       array(
@@ -952,7 +952,7 @@ $GLOBALS_METADATA = array(
       '1',                              // default
       xl('After migration from the old password mechanisms where passwords are stored in the users table without salt is complete, this flag should be set to false so that only authentication by the new method is possible')
     ),
-      
+
     'password_expiration_days' => array(
       xl('Default Password Expiration Days'),
       'num',                            // data type
@@ -1014,14 +1014,14 @@ $GLOBALS_METADATA = array(
       '',                               // default
       xl('Name of the sender for patient reminders.')
     ),
-    
+
     'patient_reminder_sender_email' => array(
       xl('Patient Reminder Sender Email'),
       'text',                           // data type
       '',                               // default
       xl('Email address of the sender for patient reminders. Replies to patient reminders will be directed to this address. It is important to use an address from your clinic\'s domain to avoid help prevent patient reminders from going to junk mail folders.')
     ),
-    
+
     'practice_return_email_path' => array(
       xl('Notification Email Address'),
       'text',                           // data type
@@ -1109,21 +1109,21 @@ $GLOBALS_METADATA = array(
       '50',                             // default
       xl('Number of hours in advance to send Phone notification.')
     ),
-    
+
     'phone_gateway_username' => array(
       xl('Phone Gateway Username'),
       'text',                           // data type
       '',                               // default
       xl('Username for Phone Gateway. Automated VOIP service provided by Maviq. Please visit http://signup.maviq.com for more information.')
     ),
-    
+
     'phone_gateway_password' => array(
       xl('Phone Gateway Password'),
       'text',                           // data type
       '',                               // default
       xl('Password for Phone Gateway. Automated VOIP service provided by Maviq. Please visit http://signup.maviq.com for more information.')
     ),
-    
+
     'phone_gateway_url' => array(
       xl('Phone Gateway URL'),
       'text',                           // data type
@@ -1132,7 +1132,7 @@ $GLOBALS_METADATA = array(
     ),
 
   ),
-  
+
   // CDR (Clinical Decision Rules)
   //
   'CDR' => array(
@@ -1143,7 +1143,7 @@ $GLOBALS_METADATA = array(
       '1',                               // default
       xl('Enable Clinical Decisions Rules (CDR)')
     ),
-    
+
     'enable_cdr_crw' => array(
       xl('Enable Clinical Reminder Widget'),
       'bool',                           // data type
@@ -1253,7 +1253,7 @@ $GLOBALS_METADATA = array(
       '1',                               // default
       xl('Enable Itemization of AMC Reports')
     ),
- 
+
   ),
 
   // Logging
@@ -1357,7 +1357,7 @@ $GLOBALS_METADATA = array(
       '',                               // default
       xl('CA Certificate for verifying the RFC 5425 TLS syslog server.')
     ),
-	
+
 	//July 1, 2014: Ensoftek: Flag to enable/disable audit log encryption
 	'enable_auditlog_encryption' => array(
       xl('Enable Audit Log Encryption'),
@@ -1529,6 +1529,12 @@ $GLOBALS_METADATA = array(
       '/var/www/html/pandiaemr/scan',                 // default
       xl('Location where scans are stored.')
     ),
+    'organizaion_id' => array(
+      xl('Nuance Organization ID'),
+      'text',                           // data type
+      '',                 // default
+      xl('Your Organizations Unique ID.')
+    ),
 
   ),
 
@@ -1549,7 +1555,7 @@ $GLOBALS_METADATA = array(
       'https://your_web_site.com/openemr/patients',
       xl('Website link for the Onsite Patient Portal.')
     ),
-    
+
     'portal_offsite_enable' => array(
       xl('Enable Offsite Patient Portal'),
       'bool',                           // data type
@@ -1562,7 +1568,7 @@ $GLOBALS_METADATA = array(
       'text',                           // data type
       '',
       xl('Offsite Patient Portal Provider ID(Put Blank If not Registered).')
-    ),    
+    ),
 
     'portal_offsite_username' => array(
       xl('Offsite Patient Portal Username'),
@@ -1656,98 +1662,98 @@ $GLOBALS_METADATA = array(
       'https://len.mi-squared.com:29443/len/api',
       xl('Contact Medical Information Integration, LLC at http://mi-squared.com for Lab Exchange Service.')
     ),
-    
+
     'erx_enable' => array(
       xl('Enable NewCrop eRx Service'),
       'bool',                           // data type
       '0',
       xl('Enable NewCrop eRx Service')
-    ),    
-    
+    ),
+
     'erx_path_production' => array(
       xl('NewCrop eRx Site Address'),
       'text',                           // data type
       'https://secure.newcropaccounts.com/InterfaceV7/RxEntry.aspx',
       xl('Contact Medical Information Integration, LLC at http://mi-squared.com or ZH Healthcare at http://zhservices.com for subscribing the eRx service')
     ),
-    
+
     'erx_path_soap_production' => array(
       xl('NewCrop eRx Web Service Address'),
       'text',                           // data type
       'https://secure.newcropaccounts.com/v7/WebServices/Update1.asmx?WSDL;https://secure.newcropaccounts.com/v7/WebServices/Patient.asmx?WSDL',
       xl('Contact Medical Information Integration, LLC at http://mi-squared.com or ZH Healthcare at http://zhservices.com for subscribing the eRx service')
     ),
-    
+
     'erx_soap_ttl_allergies' => array(
       xl('NewCrop eRx SOAP Request Time-To-Live for Allergies'),
       'num',
       '21600',
       xl('Time-To-Live for Allergies SOAP Request in seconds')
     ),
-    
+
     'erx_soap_ttl_medications' => array(
       xl('NewCrop eRx SOAP Request Time-To-Live for Medications'),
       'num',
       '21600',
       xl('Time-To-Live for Medications SOAP Request in seconds')
     ),
-    
+
     'partner_name_production' => array(
       xl('NewCrop eRx Partner Name'),
       'text',                           // data type
       '',
       xl('Contact Medical Information Integration, LLC at http://mi-squared.com or ZH Healthcare at http://zhservices.com for subscribing the eRx service')
     ),
-    
+
     'erx_name_production' => array(
       xl('NewCrop eRx Name'),
       'text',                           // data type
       '',
       xl('Contact Medical Information Integration, LLC at http://mi-squared.com or ZH Healthcare at http://zhservices.com for subscribing the eRx service')
     ),
-    
+
     'erx_password_production' => array(
       xl('NewCrop eRx Password'),
       'pass',                           // data type
       '',
       xl('Contact Medical Information Integration, LLC at http://mi-squared.com or ZH Healthcare at http://zhservices.com for subscribing the eRx service')
     ),
-    
+
     'erx_account_id' => array(
       xl('NewCrop eRx Account Id'),
       'text',                           // data type
       '1',
       xl('Contact Medical Information Integration, LLC at http://mi-squared.com or ZH Healthcare at http://zhservices.com for subscribing the eRx service')
     ),
-    
+
     'erx_upload_active' => array(
       xl('Only upload active prescriptions'),
       'bool',                           // data type
       '0',
       xl('Only upload active prescriptions')
     ),
-    
+
     'erx_import_status_message' => array(
       xl('Enable import status message for NewCrop erx'),
       'bool',                           // data type
       '0',
       xl('Enable import status message for NewCrop erx')
     ),
-    
+
     'erx_medication_display' => array(
       xl('Do not display Medications uploaded to NewCrop'),
       'bool',                           // data type
       '0',
       xl('Do not display Medications uploaded to NewCrop')
     ),
-	
+
 	'erx_allergy_display' => array(
       xl('Do not display Allergy uploaded to NewCrop'),
       'bool',                           // data type
       '0',
       xl('Do not display Allergy uploaded to NewCrop')
     ),
-        
+
     'erx_default_patient_country' => array(
         xl('Default Patient Country'),
         array(
@@ -1816,7 +1822,7 @@ $GLOBALS_METADATA = array(
       xl('phiMail Allow CCR Send')
     )
   ),
-  
+
   'Rx' => array(
     'rx_enable_DEA' => array(
       xl('Rx Enable DEA #'),
@@ -1934,8 +1940,8 @@ $GLOBALS_METADATA = array(
       '30',
       xl('Rx Bottom Margin (px)')
     ),
-  ),  
-    
+  ),
+
   'PDF' => array (
    'pdf_layout' => array (
        xl('Layout'),
@@ -1946,7 +1952,7 @@ $GLOBALS_METADATA = array(
        'P', //defaut
        xl("Choose Layout Direction"),
     ),
-    'pdf_language' => array (  
+    'pdf_language' => array (
        xl('PDF Language'),
        array(
             'aa' => xl('Afar'),
@@ -2189,7 +2195,7 @@ $GLOBALS_METADATA = array(
         'SRA3' => ('SRA3' . " " . xl('Paper Size')),
         'SRA4' => ('SRA4' . " " . xl('Paper Size')),
       ),
-      'LETTER',               
+      'LETTER',
       xl('Choose Paper Size')
     ),
     'pdf_left_margin' => array(
@@ -2225,7 +2231,7 @@ $GLOBALS_METADATA = array(
        'D', //defaut
        xl("Choose Download or Display Inline"),
     ),
-   	
+
     'chart_label_type' => array(
         xl('Patient Label Type'),
         array(
@@ -2234,9 +2240,9 @@ $GLOBALS_METADATA = array(
             '2' => '5161',
             '3' => '5162'
         ),
-        '1', // default	
+        '1', // default
         xl('Avery Label type for printing patient labels from popups in left nav screen'),
-    ),   
+    ),
 
     'barcode_label_type' => array(
         xl('Barcode Label Type'),
@@ -2258,14 +2264,14 @@ $GLOBALS_METADATA = array(
         '9',                              // default = None
         xl('Barcode type for printing barcode labels from popups in left nav screen.')
     ),
-	
+
     'addr_label_type' => array(
         xl('Print Patient Address Label'),
         'bool',                           // data type
         '1',                              // default = false
         xl('Select to print patient address labels from popups in left nav screen.')
     ),
-	
+
    ),
 );
 ?>
