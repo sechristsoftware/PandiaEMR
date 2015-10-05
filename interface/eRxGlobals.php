@@ -85,7 +85,7 @@ class eRxGlobals {
 	 * @return string URL for NewCrop eRx requests
 	 */
 	public function getPath() {
-		return $this->getGlobalValue('erx_newcrop_path');
+		return $this->getGlobalValue('erx_path_production');
 	}
 
 	/**
@@ -93,7 +93,7 @@ class eRxGlobals {
 	 * @return array URLs for NewCrop eRx services: index [ 0 = Update, 1 = Patient ]
 	 */
 	public function getSoapPaths() {
-		return explode(';', $this->getGlobalValue('erx_newcrop_path_soap'));
+		return explode(';', $this->getGlobalValue('erx_path_soap_production'));
 	}
 
 	/**
@@ -117,7 +117,7 @@ class eRxGlobals {
 	 * @return string Partner name for credentials
 	 */
 	public function getPartnerName() {
-		return $this->getGlobalValue('erx_account_partner_name');
+		return $this->getGlobalValue('partner_name_production');
 	}
 
 	/**
@@ -125,7 +125,7 @@ class eRxGlobals {
 	 * @return string Account name for credentials
 	 */
 	public function getAccountName() {
-		return $this->getGlobalValue('erx_account_name');
+		return $this->getGlobalValue('erx_name_production');
 	}
 
 	/**
@@ -133,7 +133,7 @@ class eRxGlobals {
 	 * @return string Password for credentials
 	 */
 	public function getAccountPassword() {
-		return $this->getGlobalValue('erx_account_password');
+		return $this->getGlobalValue('erx_password_production');
 	}
 
 	/**

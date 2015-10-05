@@ -9,6 +9,22 @@ $returnurl = $GLOBALS['concurrent_layout'] ? 'encounter_top.php' : 'patient_enco
 ?>
 <html><head>
 <?php html_header_show();?>
+  <script type="text/javascript" src="https://speechanywhere.nuancehdp.com/2.1/scripts/Nuance.SpeechAnywhere.js"></script>
+
+<script type="text/javascript">
+
+function NUSA_configure()
+
+ {
+
+NUSA_userId = "<?php echo htmlspecialchars($res{"uname"}); ?>";
+
+NUSA_applicationName = "pandiaemr";
+
+}
+
+</script>
+
 <link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
 </head>
 <body class="body_top">

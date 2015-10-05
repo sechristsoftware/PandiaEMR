@@ -1674,13 +1674,13 @@ $GLOBALS_METADATA = array(
       xl('NewCrop eRx Site Address'),
       'text',                           // data type
       'https://secure.newcropaccounts.com/InterfaceV7/RxEntry.aspx',
-      xl('Contact Medical Information Integration, LLC at http://mi-squared.com or ZH Healthcare at http://zhservices.com for subscribing the eRx service')
+      xl('')
     ),
 
     'erx_path_soap_production' => array(
       xl('NewCrop eRx Web Service Address'),
       'text',                           // data type
-      'https://secure.newcropaccounts.com/v7/WebServices/Update1.asmx?WSDL;https://secure.newcropaccounts.com/v7/WebServices/Patient.asmx?WSDL',
+      'https://secure.newcropaccounts.com/v7/WebServices/Update1.asmx',
       xl('Contact Medical Information Integration, LLC at http://mi-squared.com or ZH Healthcare at http://zhservices.com for subscribing the eRx service')
     ),
 
