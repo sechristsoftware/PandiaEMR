@@ -1529,6 +1529,12 @@ $GLOBALS_METADATA = array(
       '/var/www/html/pandiaemr/scan',                 // default
       xl('Location where scans are stored.')
     ),
+    'organizaion_id' => array(
+      xl('Nuance Organization ID'),
+      'text',                           // data type
+      '',                 // default
+      xl('Your Organizations Unique ID.')
+    ),
 
   ),
 
@@ -1664,17 +1670,25 @@ $GLOBALS_METADATA = array(
       xl('Enable NewCrop eRx Service')
     ),
 
+<<<<<<< HEAD
     'erx_newcrop_path' => array(
+=======
+    'erx_path_production' => array(
+>>>>>>> origin/master
       xl('NewCrop eRx Site Address'),
       'text',                           // data type
       'https://secure.newcropaccounts.com/InterfaceV7/RxEntry.aspx',
-      xl('Contact Medical Information Integration, LLC at http://mi-squared.com or ZH Healthcare at http://zhservices.com for subscribing the eRx service')
+      xl('')
     ),
 
+<<<<<<< HEAD
     'erx_newcrop_path_soap' => array(
+=======
+    'erx_path_soap_production' => array(
+>>>>>>> origin/master
       xl('NewCrop eRx Web Service Address'),
       'text',                           // data type
-      'https://secure.newcropaccounts.com/v7/WebServices/Update1.asmx?WSDL;https://secure.newcropaccounts.com/v7/WebServices/Patient.asmx?WSDL',
+      'https://secure.newcropaccounts.com/v7/WebServices/Update1.asmx',
       xl('Contact Medical Information Integration, LLC at http://mi-squared.com or ZH Healthcare at http://zhservices.com for subscribing the eRx service')
     ),
 
@@ -1692,21 +1706,33 @@ $GLOBALS_METADATA = array(
       xl('Time-To-Live for Medications SOAP Request in seconds')
     ),
 
+<<<<<<< HEAD
     'erx_account_partner_name' => array(
+=======
+    'partner_name_production' => array(
+>>>>>>> origin/master
       xl('NewCrop eRx Partner Name'),
       'text',                           // data type
       '',
       xl('Contact Medical Information Integration, LLC at http://mi-squared.com or ZH Healthcare at http://zhservices.com for subscribing the eRx service')
     ),
 
+<<<<<<< HEAD
     'erx_account_name' => array(
+=======
+    'erx_name_production' => array(
+>>>>>>> origin/master
       xl('NewCrop eRx Name'),
       'text',                           // data type
       '',
       xl('Contact Medical Information Integration, LLC at http://mi-squared.com or ZH Healthcare at http://zhservices.com for subscribing the eRx service')
     ),
 
+<<<<<<< HEAD
     'erx_account_password' => array(
+=======
+    'erx_password_production' => array(
+>>>>>>> origin/master
       xl('NewCrop eRx Password'),
       'pass',                           // data type
       '',

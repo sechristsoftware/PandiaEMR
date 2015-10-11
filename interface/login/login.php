@@ -52,8 +52,9 @@ function imsubmitted() {
  olddate.setFullYear(olddate.getFullYear() - 1);
  document.cookie = '<?php echo session_name() . '=' . session_id() ?>; path=/; expires=' + olddate.toGMTString();
 <?php } ?>
-    return false; //Currently the submit action is handled by the encrypt_form(). 
+    return false; //Currently the submit action is handled by the encrypt_form().
 }
+document.cookie = 'NUSA_Guids = <<?php echo ($GLOBALS['organizaion_id'])?>>/<84e4e1fa-a8f2-464c-96c3-647d8f96a32b>'
 </script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -64,10 +65,10 @@ function imsubmitted() {
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
-    
+
 <body onload="javascript:document.login_form.authUser.focus();" >
 <span class="text"></span>
-    
+
 <center>
 
 <form method="POST"
@@ -102,7 +103,7 @@ else {
 $_SESSION['language_choice'] = $defaultLangID;
 // collect languages if showing language menu
 if ($GLOBALS['language_menu_login']) {
-    
+
         // sorting order of language titles depends on language translation options.
         $mainLangID = empty($_SESSION['language_choice']) ? '1' : $_SESSION['language_choice'];
         if ($mainLangID == '1' && !empty($GLOBALS['skip_english_translation']))
@@ -122,7 +123,7 @@ if ($GLOBALS['language_menu_login']) {
             "ORDER BY IF(LENGTH(ld.definition),ld.definition,ll.lang_description), ll.lang_id";
           $res3=SqlStatement($sql, array($mainLangID));
 	}
-    
+
         for ($iter = 0;$row = sqlFetchArray($res3);$iter++)
                $result3[$iter] = $row;
         if (count($result3) == 1) {
@@ -131,13 +132,13 @@ if ($GLOBALS['language_menu_login']) {
         }
 }
 else {
-        echo "<input type='hidden' name='languageChoice' value='".attr($defaultLangID)."' />\n";   
+        echo "<input type='hidden' name='languageChoice' value='".attr($defaultLangID)."' />\n";
 }
 ?>
 
 <div class="login-box">
 <center><div><img src="/interface/pic/logo.png"></div>
-    
+
 <br>
 
 <?php if (count($result) != 1) { ?>
