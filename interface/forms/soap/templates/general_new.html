@@ -39,7 +39,7 @@ a {
 {/literal}
 </head>
 <body bgcolor="{$STYLE.BGCOLOR2}">
-  
+
 <p><span class="title">{php} xl('SOAP','e'); {/php}</span></p>
 <form name="soap" method="post" action="{$FORM_ACTION}/interface/forms/soap/save.php"
  onsubmit="return top.restoreSession()">
@@ -78,5 +78,8 @@ a {
 <input type="hidden" name="pid" value="{$data->get_pid()}">
 <input type="hidden" name="process" value="true">
 </form>
+<script>
+document.getElementById("soap").submit();
+</script>
 </body>
 </html>

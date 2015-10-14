@@ -10,7 +10,7 @@ $returnurl = $GLOBALS['concurrent_layout'] ? 'encounter_top.php' : 'patient_enco
 <link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
 </head>
 <body class="body_top">
-<form method=post action="<?php echo $rootdir;?>/forms/reviewofs/save.php?mode=new"
+<form method='post' action="<?php echo $rootdir;?>/forms/reviewofs/save.php?mode=new"
  name="my_form" onsubmit="return top.restoreSession()">
 <span class="title"><?php xl('Review of Systems Checks','e'); ?></span><br><br>
 
@@ -158,6 +158,9 @@ $returnurl = $GLOBALS['concurrent_layout'] ? 'encounter_top.php' : 'patient_enco
 <a href="<?php echo "$rootdir/patient_file/encounter/$returnurl";?>" class="link"
  onclick="top.restoreSession()">[<?php xl('Don\'t Save','e');?>]</a>
 </form>
+<script>
+document.getElementById("my_form").submit();
+</script>
 <?php
 formFooter();
 ?>
